@@ -9,3 +9,14 @@ spring:
           github:
             client-id: 27eef414f222c5aefd8e
             client-secret: 01f0c3a1d5147935b39b6ec4cd49fce671924e0b
+  datasource:
+    url: jdbc:postgresql://ec2-176-34-97-213.eu-west-1.compute.amazonaws.com:5432/dadb1hleev83pc
+    username: hbrebivvxbdeaa
+    password: 9ed3ed691c7c391cddbd2c994f686f15d2b97fd1299146f836c5d73afa3e8d96
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers_skip_column_definitions: true
