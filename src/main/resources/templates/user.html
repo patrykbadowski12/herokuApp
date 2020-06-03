@@ -23,6 +23,24 @@
         <a href="/logout" class="btn btn-outline-danger" role="button">LOGOUT</a>
     </div>
 </nav>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Last visit</th>
+        <th scope="col">Joined</th>
+        <th scope="col">Number of entries</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.getName()}">Oranges</td>
+        <td th:text="${#temporals.format(user.getLastVisit(), 'yyyy-MM-dd HH:mm:ss')}">0.99</td>
+        <td th:text="${#temporals.format(user.getJoined(),'yyyy-MM-dd HH:mm:ss')}">0.99</td>
+        <td th:text="${user.getCounter()}">2</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>

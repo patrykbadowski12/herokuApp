@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -47,10 +48,11 @@ public class Controller {
             user.setLastVisit(LocalDateTime.now());
         }
         userRepository.save(user);
-
+        List<User> allUsers = userRepository.findAll();
         objects.put("username" , username);
         objects.put("avatar", avatar);
         model.addAllAttributes(objects);
+        model.addAttribute("users", allUsers);
         return "user";
     }
 }
